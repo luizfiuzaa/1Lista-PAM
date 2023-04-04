@@ -1,0 +1,16 @@
+*{
+  outline: 1px solid red dashed;
+}
+
+:root{
+
+
+  --dark-color: #000;
+  --gray-scale:#e7e7e7;
+  --white-color: #fff;
+}
+
+
+.header{
+  background: var(--gray-scale);
+}
