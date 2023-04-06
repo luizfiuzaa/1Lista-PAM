@@ -1,34 +1,52 @@
-const url = `https://pokeapi.co/api/v2/pokemon/ditto`;
+// ? Declaração do botão
+const btn = document.getElementById("btn");
 
-// terminar
-function getItem(url){
-		fetch(url)
-		.then(response => response.json())
-		.then(dados => {
-      console.log(dados.name);
-    //   dados.sprites.forEach((item, index) => {
-    //     if (index < 1) {
-    //       let col = document.createElement('div');
+// ! terminar
 
-    //       let image = document.createElement('img');
-    //       image.setAttribute('src', item.img_src);
-    //       image.className = 'img-fluid rounded shadow';
+// ? Quando btn for clicado, execute:
+btn.addEventListener("click", () => {
+	// ? Declarações:
+	// ? Input para pegar o nome do pokemon
+  let pokemonName = document.getElementById("pokemonName").value;
 
-    //       col.appendChild(image);
-    //       conteudo.appendChild(col);
-    //     }
-    // });
-})
-		.catch(_ => {console.log(_)})
-		.finally( () => {console.log('Processo finalizado!')});
-	}
+	// ? A tag <h3>
+  let nome = document.getElementById("nome");
 
-	getItem(url);
+	// ? A tag <img>
+	let pokemonImg = document.getElementById("pokemonImg");
+	
+	// ? A tag <img>
+	let pokemonHabilidade = document.getElementById("habilidade");
+  
+	// ? Url da API (onde vai pegar o value do input)
+	const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+	
+	// ? Url da API (onde vai pegar o value do input)
+  function getItem(url) {
+    fetch(url)
+      .then((response) => response.json())
+      .then((dados) => {
+        console.log(dados);
+        nome.innerText = `${dados["name"]}`;
+        pokemonImg.setAttribute(
+          "src",`${dados["sprites"]["versions"]["generation-vii"]["ultra-sun-ultra-moon"]["front_default"]}`
+        );
+				dados.abilities.forEach((item, index) => {
+					if (index < 2) {
+						let habilities = document.createAttribute('span');
 
-  	// let meu_elemento = document.CreateElement('img');
-	  // element.id = 'MeuElemento';
-  	// element.className = 'img-fluid';
-	  // element.setAttribute('src', 'link da imagem');
+						document.getElementById('habilidade').appendChild(habilities);
+					}
+			});
+      })
+      .catch((_) => {
+        console.log(_);
+      })
+      .finally(() => {
+				console.log("Processo finalizado!");
+      });
+			
+  }
 
-		// //O elemento criado acima será adicionado dentro do conteúdo
-		// document.getElementById('conteudo').appendChild(meu_elemento);
+  getItem(url);
+});

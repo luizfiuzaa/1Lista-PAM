@@ -3,14 +3,18 @@
 }
 
 :root{
-
+  --primary-color:#000;
+  --secondary-color:#000;
 
   --dark-color: #000;
   --gray-scale:#e7e7e7;
   --white-color: #fff;
 }
 
-
 .header{
   background: var(--gray-scale);
+}
+
+.info{
+  color: var(--white-color);
 }
