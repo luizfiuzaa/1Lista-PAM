@@ -2,7 +2,6 @@
 const btn = document.getElementById("btn");
 
 // ! terminar
-
 // ? Quando btn for clicado, execute:
 btn.addEventListener("click", () => {
 	// ? Declarações:
@@ -15,7 +14,7 @@ btn.addEventListener("click", () => {
 	// ? A tag <img>
 	let pokemonImg = document.getElementById("pokemonImg");
 	
-	// ? A tag <img>
+	// ? A <div> de abilidades
 	let pokemonHabilidade = document.getElementById("habilidade");
   
 	// ? Url da API (onde vai pegar o value do input)
@@ -32,11 +31,8 @@ btn.addEventListener("click", () => {
           "src",`${dados["sprites"]["versions"]["generation-vii"]["ultra-sun-ultra-moon"]["front_default"]}`
         );
 				dados.abilities.forEach((item, index) => {
-					if (index < 2) {
-						let habilities = document.createAttribute('span');
+						let abilities = document.createElement('p');
 
-						document.getElementById('habilidade').appendChild(habilities);
-					}
 			});
       })
       .catch((_) => {
@@ -45,8 +41,6 @@ btn.addEventListener("click", () => {
       .finally(() => {
 				console.log("Processo finalizado!");
       });
-			
   }
-
   getItem(url);
 });
