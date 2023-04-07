@@ -5,6 +5,9 @@ const btn = document.getElementById("btn");
 // TODO: substituir os dados antigos pelos novos
 // ? Quando btn for clicado, execute:
 btn.addEventListener("click", () => {
+	// Zerando dados do pokemon
+
+	
 	// ? Declarações:
 	// ? Input para pegar o nome do pokemon
   let pokemonName = document.getElementById("pokemonName").value;
@@ -27,11 +30,23 @@ btn.addEventListener("click", () => {
 	// ? A div tipos
 	let pokemonTipo = document.getElementById("tipos");
 
+	// ? A div Experiencia
+	let pokemonExperiencia= document.getElementById("experiencia");
+
+	// ? A div Altura
+	let pokemonAltura = document.getElementById("altura");
+
 	// ? Url da API (onde vai pegar o value do input)
 	const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 	
 	// ? Url da API (onde vai pegar o value do input)
   function getItem(url) {
+	nome.innerHTML = "";
+	pokemonImg.innerHTML = "";
+	pokemonHabilidade.innerHTML = "";
+	pokemonForma.innerHTML = "";
+	pokemonEspecie.innerHTML = "";
+	pokemonTipo.innerHTML = "";
     fetch(url)
       .then((response) => response.json())
       .then((dados) => {
@@ -63,6 +78,14 @@ btn.addEventListener("click", () => {
 				tipos.innerHTML = `${dados['types'][`${index}`]['type']['name']}`;
 				pokemonTipo.appendChild(tipos);
 			});
+
+				let experiencia = document.createElement('span');
+				experiencia.innerHTML = `${dados['base_experience']}`;
+				pokemonExperiencia.appendChild(experiencia);
+
+				let altura = document.createElement('span');
+				altura.innerHTML = `${dados['height']}`;
+				pokemonAltura.appendChild(altura);
       })
       .catch((_) => {
         console.log(_);
