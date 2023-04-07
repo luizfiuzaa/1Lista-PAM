@@ -20,8 +20,11 @@ btn.addEventListener("click", () => {
 	// ? A div formas
 	let pokemonForma = document.getElementById("formas");
 
-
+	// ? A div espécies
 	let pokemonEspecie = document.getElementById("especies");
+	
+	// ? A div tipos
+	let pokemonTipo = document.getElementById("tipos");
 
 	// ? Url da API (onde vai pegar o value do input)
 	const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
@@ -33,24 +36,31 @@ btn.addEventListener("click", () => {
       .then((dados) => {
         console.log(dados);
         nome.innerText = `${dados["name"]}`;
+
         pokemonImg.setAttribute(
           "src",`${dados["sprites"]["versions"]["generation-vii"]["ultra-sun-ultra-moon"]["front_default"]}`
         );
+
 				dados['abilities'].forEach((item, index) => {
 					let habilidades = document.createElement('span');
 			    habilidades.innerHTML = `${dados['abilities'][`${index}`]['ability']['name']}`+'<br>';
           pokemonHabilidade.appendChild(habilidades);
 			});
+
 			dados['forms'].forEach((item, index)=>{
 				let formas = document.createElement('span');
 				formas.innerHTML = `${dados['forms'][`${index}`]['name']}`;
 				pokemonForma.appendChild(formas);
 			});
-			// ! Erro
-			dados['species'].forEach((item)=>{
-				let especies = document.createElement('span');
-				especies.innerHTML = `${dados['species']['name']}`;
-				pokemonEspecie.appendChild(especies);
+
+			let especies = document.createElement('span');
+			especies.innerHTML = `${dados['species']['name']}`;
+			pokemonEspecie.appendChild(especies);
+			
+			dados['types'].forEach((item, index)=>{
+				let tipos = document.createElement('span');
+				tipos.innerHTML = `${dados['types'][`${index}`]['type']['name']}`;
+				pokemonTipo.appendChild(tipos);
 			});
       })
       .catch((_) => {
