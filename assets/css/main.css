@@ -33,7 +33,6 @@ input{
   border-radius: 10px;
   color: var(--light-color);
   transition: 0.2s;
-  padding-inline: 3%;
 }
 
 
