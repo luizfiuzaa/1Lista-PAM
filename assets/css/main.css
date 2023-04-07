@@ -1,14 +1,14 @@
-*{
+/* *{
   outline: 1px solid red dashed;
-}
+} */
 
 :root{
-  --primary-color:#000;
-  --secondary-color:#000;
+  --primary-color:#002333;
+  --secondary-color:#159a9c;
 
   --dark-color: #000;
   --gray-scale:#e7e7e7;
-  --white-color: #fff;
+  --light-color: #fff;
 }
 
 .header{
@@ -16,5 +16,27 @@
 }
 
 .info{
-  color: var(--white-color);
+  color: var(--light-color);
+  background: var(--primary-color);
+  border-radius: 20px;
+  padding-bottom: 3%;
+}
+
+input{
+  border-radius: 10px;
+  width: 3%;
+  border: var(--dark-color) 1px solid;
+}
+
+.button {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  color: var(--light-color);
+  transition: 0.2s;
+  padding-inline: 3%;
+}
+
+
+.button:hover {
+  background: var(--primary-color);
 }

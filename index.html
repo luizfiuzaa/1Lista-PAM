@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atividade PAM - POKEDEX</title>
+
+    <link rel="icon" href="https://iconape.com/wp-content/png_logo_vector/pokemon-go-pokestop-logo.png"/>
     <!-- Instalação do Bootstrap -->
     <link
       rel="stylesheet"
@@ -22,38 +24,31 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
-    <!-- ! terminar -->
     <!-- ? Header -->
-    <div
-      class="row container p-3 col-12 header d-flex justify-content-center align-items-center"
-    >
-      <div class="header__input">
+    <div class="header p-3">
+      <div class="d-flex justify-content-center">
         <!-- ? Input e botão para pesquisar o pokemon -->
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-inline nome-input mr-3 row">
           <input
+          class="d-flex col-12"
             type="text"
-            class="form-control"
             id="pokemonName"
             placeholder="Nome do Pokémon"
           />
-          <button id="btn" class="btn btn-primary rounded mb-2">Buscar</button>
         </div>
+        <button id="btn" class="btn-primary col-2 button"><b>Buscar</b></button>
       </div>
     </div>
     <!-- ? Caixa com as informações do pokemon -->
-    <div
-      style="background: rgb(95, 95, 235)"
-      class="container rounded mt-4 col-6 p-3"
-    >
-      <div class="info text-center">
-        <div class="info__name">
+    <div class="container col-md-5 col-sx-3 p-3">
+    <div class="shadow p-4 info text-center">
+        <div class="info__name mb-3">
           <h3 id="nome">Pokémon</h3>
         </div>
-
         <div id="content">
-          <img src="" id="pokemonImg" class="img-fluid" alt="" />
+          <img src="" width="200" id="pokemonImg" class="rounded mx-auto d-block img-thumbnail img-fluid" />
         </div>
-        <h5 class="">Habilidade</h5>
+        <h5 class="mt-3">Habilidade</h5>
         <div id="habilidade" class="mb-3 info__skills"></div>
 
         <h5 class="mt-3">Formas</h5>
