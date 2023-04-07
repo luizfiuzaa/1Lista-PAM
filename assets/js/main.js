@@ -2,6 +2,7 @@
 const btn = document.getElementById("btn");
 
 // ! terminar
+// TODO: substituir os dados antigos pelos novos
 // ? Quando btn for clicado, execute:
 btn.addEventListener("click", () => {
 	// ? Declarações:
